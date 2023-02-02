@@ -1,8 +1,7 @@
 {
-    "configuration": "PartitionScheme=min_spiffs,FlashMode=qio,FlashFreq=80,UploadSpeed=921600,DebugLevel=none,EraseFlash=none",
-    "board": "esp32:esp32:esp32wrover",
-    "programmer": "esp32:esptool",
+    "configuration": "CPUFreq=240,FlashSize=4M,PSRAM=enabled,PartitionScheme=huge_app,FlashMode=qio,FlashFreq=80,UploadSpeed=921600,DebugLevel=none,EraseFlash=none",
+    "board": "esp32:esp32:esp32wroverkit",
     "port": "COM3",
-    "sketch": "examples\\TBA_ListPlus_test\\TBA_ListPlus_test.ino",
-    "output": "../Build/TBA_ListID_test"
+    "sketch": "examples\\LinkList_ElementBase\\LinkList_ElementBase.ino",
+    "output": "../build"
 }
