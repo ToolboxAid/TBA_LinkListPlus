@@ -15,7 +15,7 @@ private:
 
 protected:
 public:
-    ElementDerived(char *name, std::string moreData); // no need to add base class info here
+    ElementDerived(const char *name, std::string moreData); // no need to add base class info here
     ~ElementDerived();
 
     void setMoreData(std::string moreData);
@@ -29,7 +29,7 @@ Header Above
 Code   Below
 = = = = = = = = = = = = = = = = = = = = = = = = */
 
-ElementDerived::ElementDerived(char *name, std::string moreData) : ElementBase::ElementBase(name) // base class info required here
+ElementDerived::ElementDerived(const char *name, std::string moreData) : ElementBase::ElementBase(name) // base class info required here
 {
     if (moreData.empty())
     {
@@ -63,7 +63,7 @@ void ElementDerived::debugSerial(std::string debugLocation)
     Serial.print(this->moreData.c_str());
     Serial.print(F("' "));
 
-    ElementBase::debugSerial((char *)debugLocation.c_str()); //----->call base class first
+    ElementBase::debugSerial((const char *)debugLocation.c_str()); //----->call base class first
 }
 
 #endif

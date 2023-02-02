@@ -75,7 +75,7 @@ void searchForID(LinkListPlus *linkListPlus, uint16_t id)
         ed->debugSerial("found");
     }
 }
-void searchForName(LinkListPlus *linkListPlus, char *name)
+void searchForName(LinkListPlus *linkListPlus, const char *name)
 {
     Serial.print("Search For name: '");
     Serial.print(name);
@@ -108,7 +108,7 @@ void deleteForID(LinkListPlus *linkListPlus, uint16_t id)
         Serial.println("*** 'not found' ***");
     }
 }
-void deleteForName(LinkListPlus *linkListPlus, char *name)
+void deleteForName(LinkListPlus *linkListPlus, const char *name)
 {
     Serial.print("Delete For name: ");
     Serial.print(name);

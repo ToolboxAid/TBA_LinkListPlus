@@ -4,6 +4,7 @@
 #define ElementBase_cpp
 
 #include "..\LinkListDebug.h" // You are required to create this file in every Project that uses LinkListPlus at root folder \LinkListDebug.h
+//#define ElementBaseDebug
 
 #include "ElementBase.h"
 

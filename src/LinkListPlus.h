@@ -45,32 +45,26 @@ public:
 
     /* Function to insert a node at the beginning of the linked list */
     uint16_t insertAtBegin(ElementBase *elementBase);
-
-    /* Function to insert Node at end */
-    uint16_t insertAtEnd(ElementBase *elementBase);
-
     /* Function to insert Node at any position pos */
     uint16_t insertAtPos(ElementBase *elementBase, int pos);
+    /* Function to insert Node at end */
+    uint16_t insertAtEnd(ElementBase *elementBase);
 
     /* Function to search for ID */
     ElementBase *searchID(uint16_t elementID);
     /* Function to search for ID */
-    ElementBase *searchName(char *name);
+    ElementBase *searchName(const char *name);
 
     /* Function to delete node at the beginning of the list */
     void delAtBegin();
-
-    /* Function to delete at the end of the list */
-    void delAtEnd();
-
     /* Function to delete the node at a given position pos */
     void delAtPos(int pos);
-
+    /* Function to delete at the end of the list */
+    void delAtEnd();
     /* Function to search for ID */
     bool deleteID(uint16_t elementID);
-
     /* Function to search for ID */
-    bool deleteName(char *name);
+    bool deleteName(const char *name);
 
     /* Function to traverseForward the Doubly Linked List  (used for testing only)*/
     void clearLinkList();
@@ -84,11 +78,10 @@ public:
         TESTIN ONLY BELOW HERE
     */
 
+   /* Print the pointer*/
     void traversePrint(node *ptr);
-
     /* Function to traverseForward the Doubly Linked List  (used for testing only)*/
     void traverseForward();
-
     /* Function to traverseBackward the Doubly Linked List  (used for testing only)*/
     void traverseBackward();
 };

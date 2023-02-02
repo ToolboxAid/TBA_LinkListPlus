@@ -19,7 +19,7 @@ private:
 
 protected:
 public:
-    ElementDerived(char *name, InnerClass *innerClass); // no need to add base class info here
+    ElementDerived(const char *name, InnerClass *innerClass); // no need to add base class info here
     ~ElementDerived();
 
     InnerClass *getInnerClass();
@@ -32,7 +32,7 @@ Header Above
 Code   Below
 = = = = = = = = = = = = = = = = = = = = = = = = */
 
-ElementDerived::ElementDerived(char *name, InnerClass *innerClass) : ElementBase::ElementBase(name) // base class info required here
+ElementDerived::ElementDerived(const char *name, InnerClass *innerClass) : ElementBase::ElementBase(name) // base class info required here
 {
     if (innerClass == NULL)
     {
@@ -71,7 +71,7 @@ void ElementDerived::debugSerial(std::string debugLocation)
     Serial.print(this->innerClass->getInnerData().c_str());
     Serial.print(F("' "));
 
-    ElementBase::debugSerial((char *)debugLocation.c_str()); //----->call base class first
+    ElementBase::debugSerial((const char *)debugLocation.c_str()); //----->call base class first
 #endif
 }
 

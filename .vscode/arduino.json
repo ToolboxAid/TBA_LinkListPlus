@@ -3,5 +3,5 @@
     "board": "esp32:esp32:esp32wroverkit",
     "port": "COM3",
     "sketch": "examples\\LinkList_ElementBase\\LinkList_ElementBase.ino",
-    "output": "../build"
+    "output": "../Build"    
 }

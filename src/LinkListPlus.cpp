@@ -4,6 +4,7 @@
 #define LinkListPlus_cpp
 
 #include "..\LinkListDebug.h" // You are required to create this file in every Project that uses LinkListPlus at root folder \LinkListDebug.h
+// LinkListPlusDebug
 
 #include "LinkListPlus.h"
 
@@ -92,42 +93,6 @@ uint16_t LinkListPlus::insertAtBegin(ElementBase *elementBase)
 
     return temp->data->getIdentity();
 }
-
-/* Function to insert Node at end */
-uint16_t LinkListPlus::insertAtEnd(ElementBase *elementBase)
-{
-    if (NULL == elementBase)
-    {
-        explainYourself();
-        return 0;
-    }
-
-    /* Allocating memory to the Node ptr */
-    temp = (node *)malloc(sizeof(node));
-
-    /* Assign value to data temp */
-    temp->data = elementBase;
-
-    /* Next and prev pointer to NULL */
-    temp->next = NULL;
-    temp->prev = NULL;
-
-    if (head == NULL)
-    { /* If head is NULL */
-        head = temp;
-        tail = head;
-    }
-    else
-    { /* Else insert at the end */
-        temp->prev = tail;
-        tail->next = temp;
-        tail = temp;
-    }
-    nodeCount++;
-
-    return temp->data->getIdentity();
-}
-
 /* Function to insert Node at any position pos */
 uint16_t LinkListPlus::insertAtPos(ElementBase *elementBase, int pos)
 {
@@ -175,6 +140,40 @@ uint16_t LinkListPlus::insertAtPos(ElementBase *elementBase, int pos)
     }
     return 0;
 }
+/* Function to insert Node at end */
+uint16_t LinkListPlus::insertAtEnd(ElementBase *elementBase)
+{
+    if (NULL == elementBase)
+    {
+        explainYourself();
+        return 0;
+    }
+
+    /* Allocating memory to the Node ptr */
+    temp = (node *)malloc(sizeof(node));
+
+    /* Assign value to data temp */
+    temp->data = elementBase;
+
+    /* Next and prev pointer to NULL */
+    temp->next = NULL;
+    temp->prev = NULL;
+
+    if (head == NULL)
+    { /* If head is NULL */
+        head = temp;
+        tail = head;
+    }
+    else
+    { /* Else insert at the end */
+        temp->prev = tail;
+        tail->next = temp;
+        tail = temp;
+    }
+    nodeCount++;
+
+    return temp->data->getIdentity();
+}
 
 /* Function to search for ID */
 ElementBase *LinkListPlus::searchID(uint16_t elementID)
@@ -192,7 +191,7 @@ ElementBase *LinkListPlus::searchID(uint16_t elementID)
     return NULL;
 }
 /* Function to search for ID */
-ElementBase *LinkListPlus::searchName(char *name)
+ElementBase *LinkListPlus::searchName(const char *name)
 {
     temp = head;
     while (temp != NULL)
@@ -218,20 +217,6 @@ void LinkListPlus::delAtBegin()
     delete temp->data;
     free(temp);
 }
-
-/* Function to delete at the end of the list */
-void LinkListPlus::delAtEnd()
-{
-    // Mode tail to the prev and decrease length by 1
-    temp = tail; // dq from head to tail
-    tail = tail->prev;
-    if (tail != NULL) // dq added.
-        tail->next = NULL;
-    nodeCount--;
-    delete temp->data;
-    free(temp);
-}
-
 /* Function to delete the node at a given position pos */
 void LinkListPlus::delAtPos(int pos)
 {
@@ -268,7 +253,18 @@ void LinkListPlus::delAtPos(int pos)
         free(temp);
     }
 }
-
+/* Function to delete at the end of the list */
+void LinkListPlus::delAtEnd()
+{
+    // Mode tail to the prev and decrease length by 1
+    temp = tail; // dq from head to tail
+    tail = tail->prev;
+    if (tail != NULL) // dq added.
+        tail->next = NULL;
+    nodeCount--;
+    delete temp->data;
+    free(temp);
+}
 /* Function to search for ID */
 bool LinkListPlus::deleteID(uint16_t elementID)
 {
@@ -288,9 +284,8 @@ bool LinkListPlus::deleteID(uint16_t elementID)
 
     return false;
 }
-
 /* Function to search for ID */
-bool LinkListPlus::deleteName(char *name)
+bool LinkListPlus::deleteName(const char *name)
 {
     int pos = 1;
 
@@ -343,7 +338,6 @@ void LinkListPlus::traversePrint(node *ptr)
     ptr->data->debugSerial("back");
 #endif
 }
-
 /* Function to traverseForward the Doubly Linked List  (used for testing only)*/
 void LinkListPlus::traverseForward() //(used for testing only)
 {                                    /* Nodes points towards head node */
@@ -369,7 +363,6 @@ void LinkListPlus::traverseForward() //(used for testing only)
     Serial.println("\n\n");
 #endif
 }
-
 /* Function to traverseBackward the Doubly Linked List  (used for testing only)*/
 void LinkListPlus::traverseBackward() //(used for testing only)
 {
