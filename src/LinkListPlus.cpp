@@ -178,29 +178,36 @@ uint16_t LinkListPlus::insertAtEnd(ElementBase *elementBase)
 /* Function to search for ID */
 ElementBase *LinkListPlus::searchID(uint16_t elementID)
 {
-    temp = head;
+    if (NULL != elementID)
+    {
+        temp = head;
 
-    while (temp != NULL)
-    { /* While pointer is not NULL, traverseForward */
-        if (temp->data->getIdentity() == elementID)
-        {
-            return temp->data;
+        while (temp != NULL)
+        { /* While pointer is not NULL, traverseForward */
+            if (temp->data->getIdentity() == elementID)
+            {
+                return temp->data;
+            }
+            temp = temp->next;
         }
-        temp = temp->next;
     }
     return NULL;
 }
 /* Function to search for ID */
 ElementBase *LinkListPlus::searchName(const char *name)
 {
-    temp = head;
-    while (temp != NULL)
-    { /* While pointer is not NULL, traverseForward */
-        if (strcmp(temp->data->getName(), name) == 0)
-        {
-            return temp->data;
+    if (NULL != name)
+    {
+        // Check for empty String here...
+        temp = head;
+        while (temp != NULL)
+        { /* While pointer is not NULL, traverseForward */
+            if (strcmp(temp->data->getName(), name) == 0)
+            {
+                return temp->data;
+            }
+            temp = temp->next;
         }
-        temp = temp->next;
     }
     return NULL;
 }
@@ -268,39 +275,43 @@ void LinkListPlus::delAtEnd()
 /* Function to search for ID */
 bool LinkListPlus::deleteID(uint16_t elementID)
 {
-    int pos = 1;
+    if (NULL != elementID)
+    {
+        int pos = 1;
 
-    temp = head;
-    while (temp != NULL)
-    { /* While pointer is not NULL, traverseForward */
-        if (temp->data->getIdentity() == elementID)
-        {
-            delAtPos(pos);
-            return true;
+        temp = head;
+        while (temp != NULL)
+        { /* While pointer is not NULL, traverseForward */
+            if (temp->data->getIdentity() == elementID)
+            {
+                delAtPos(pos);
+                return true;
+            }
+            temp = temp->next;
+            pos++;
         }
-        temp = temp->next;
-        pos++;
     }
-
     return false;
 }
 /* Function to search for ID */
 bool LinkListPlus::deleteName(const char *name)
 {
-    int pos = 1;
+    if (NULL != name)
+    {
+        int pos = 1;
 
-    temp = head;
-    while (temp != NULL)
-    { /* While pointer is not NULL, traverseForward */
-        if (strcmp(temp->data->getName(), name) == 0)
-        {
-            delAtPos(pos);
-            return true;
+        temp = head;
+        while (temp != NULL)
+        { /* While pointer is not NULL, traverseForward */
+            if (strcmp(temp->data->getName(), name) == 0)
+            {
+                delAtPos(pos);
+                return true;
+            }
+            temp = temp->next;
+            pos++;
         }
-        temp = temp->next;
-        pos++;
     }
-
     return false;
 }
 
