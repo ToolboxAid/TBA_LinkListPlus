@@ -8,6 +8,7 @@
 void itoratorForward(LinkListPlus *linkListPlus)
 {
     // To iterate Node from Head to Tail
+    Serial.println("\n");
     Serial.println("Linked List iterate Node from Head to Tail: ");
     linkListPlus->setCurrentToHead();
     ElementBase *current = linkListPlus->getNext();
@@ -22,10 +23,11 @@ void itoratorForward(LinkListPlus *linkListPlus)
     }
     Serial.print("Linked List nodeCount: ");
     Serial.println(linkListPlus->getNodeCount());
-    Serial.println("\n\n");
+    Serial.println("\n");
 }
 void itoratorBackward(LinkListPlus *linkListPlus)
 { // ===================================== // To iterate Node from Tail to Head
+    Serial.println("\n");
     Serial.println("Linked List iterate Node from Tail to Head: ");
     linkListPlus->setCurrentToTail();
     ElementBase *current = linkListPlus->getPrev();
@@ -40,7 +42,7 @@ void itoratorBackward(LinkListPlus *linkListPlus)
     }
     Serial.print("Linked List nodeCount: ");
     Serial.println(linkListPlus->getNodeCount());
-    Serial.println("\n\n");
+    Serial.println("\n");
 }
 
 void insertNoData(LinkListPlus *linkListPlus)

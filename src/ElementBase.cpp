@@ -22,8 +22,8 @@ ElementBase::ElementBase(const char *name)
 ElementBase::~ElementBase()
 {
 #ifdef ElementBaseDebug
-    Serial.println("~ElementBase() ");
- // this->debugSerial("~ElementBase()~ ");
+ Serial.println("~ElementBase() ");
+ this->debugSerial("~ElementBase()~ ");
 #endif
     //    free(this->name);
 }

@@ -10,10 +10,11 @@ class ElementBase
 {
 private:
     uint16_t identity; // inits to 0; max value 65535
-    const char *name;
 
 protected:
 public:
+    const char *name;
+
     ElementBase(const char *name);
     virtual ~ElementBase();
 

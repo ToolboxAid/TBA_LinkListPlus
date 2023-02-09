@@ -336,7 +336,7 @@ void LinkListPlus::clearLinkList()
 
 void LinkListPlus::traversePrint(node *ptr)
 {
-#ifdef LinkListPlusDebug
+//#ifdef LinkListPlusDebug
     Serial.print(" prev: '");
     Serial.print((uint)ptr->prev, HEX);
     Serial.print("' ptr: '");
@@ -347,12 +347,13 @@ void LinkListPlus::traversePrint(node *ptr)
     Serial.print((uint)ptr->data, HEX);
     Serial.print("' ");
     ptr->data->debugSerial("back");
-#endif
+//#endif
 }
 /* Function to traverseForward the Doubly Linked List  (used for testing only)*/
 void LinkListPlus::traverseForward() //(used for testing only)
 {                                    /* Nodes points towards head node */
-#ifdef LinkListPlusDebug
+//#ifdef LinkListPlusDebug
+    Serial.println("\n");
     Serial.println("Linked List traverseForward - Head to Tail: ");
 
     temp = head;
@@ -366,13 +367,14 @@ void LinkListPlus::traverseForward() //(used for testing only)
         Serial.print(pos++);
         Serial.print("' ");
         traversePrint(temp);
+        Serial.println();
 
         temp = temp->next;
     }
     Serial.print("Linked List nodeCount: ");
     Serial.println(getNodeCount());
-    Serial.println("\n\n");
-#endif
+    Serial.println("\n");
+//#endif
 }
 /* Function to traverseBackward the Doubly Linked List  (used for testing only)*/
 void LinkListPlus::traverseBackward() //(used for testing only)
