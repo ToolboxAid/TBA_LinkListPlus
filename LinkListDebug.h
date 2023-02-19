@@ -8,6 +8,6 @@ in every Project that uses LinkListPlus at root folder \LinkListDebug.h
 */
 
 
-// #define LinkListPlusDebug
-// #define ElementBaseDebug
+#define LinkListPlusDebug
+#define ElementBaseDebug
 

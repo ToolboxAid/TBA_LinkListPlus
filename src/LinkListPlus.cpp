@@ -197,8 +197,7 @@ ElementBase *LinkListPlus::searchID(uint16_t elementID)
 ElementBase *LinkListPlus::searchName(const char *name)
 {
     if (NULL != name)
-    {
-        // Check for empty String here...
+    {   // Check for empty String here...
         temp = head;
         while (temp != NULL)
         { /* While pointer is not NULL, traverseForward */
@@ -367,7 +366,6 @@ void LinkListPlus::traverseForward() //(used for testing only)
         Serial.print(pos++);
         Serial.print("' ");
         traversePrint(temp);
-        Serial.println();
 
         temp = temp->next;
     }

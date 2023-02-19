@@ -21,11 +21,10 @@ ElementBase::ElementBase(const char *name)
 }
 ElementBase::~ElementBase()
 {
-#ifdef ElementBaseDebug
- Serial.println("~ElementBase() ");
- this->debugSerial("~ElementBase()~ ");
-#endif
-    //    free(this->name);
+// #ifdef ElementBaseDebug
+//  Serial.println("~ElementBase() ");
+//  this->debugSerial("~ElementBase()~ ");
+// #endif
 }
 
 uint16_t ElementBase::getIdentity()
