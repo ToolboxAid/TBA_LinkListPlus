@@ -3,11 +3,9 @@
 #ifndef ElementBase_cpp
 #define ElementBase_cpp
 
-#include "..\LinkListDebug.h" // You are required to create this file in every Project that uses LinkListPlus at root folder \LinkListDebug.h
-//#define ElementBaseDebug
-
 #include "ElementBase.h"
 
+//#define ElementBaseDebug
 /* = = = = = = = = = = = = = = = = = = = = = = = =
 ElementBase vars above
 Code Below
@@ -16,15 +14,16 @@ Code Below
 ElementBase::ElementBase(const char *name)
 {
     static uint16_t identityCounter = 0;
+
     this->identity = ++identityCounter;
     this->name = name;
 }
 ElementBase::~ElementBase()
 {
-// #ifdef ElementBaseDebug
-//  Serial.println("~ElementBase() ");
-//  this->debugSerial("~ElementBase()~ ");
-// #endif
+#ifdef ElementBaseDebug
+    Serial.println("~ElementBase() ");
+    this->debugSerial("~ElementBase()~ ");
+#endif
 }
 
 uint16_t ElementBase::getIdentity()
@@ -39,7 +38,6 @@ const char *ElementBase::getName()
 
 void ElementBase::debugSerial(const char *debugLocation)
 {
-#ifdef ElementBaseDebug    
     Serial.print(F(" <"));
     Serial.print(__FILENAME__);
     Serial.print(F("> "));
@@ -55,7 +53,6 @@ void ElementBase::debugSerial(const char *debugLocation)
     Serial.print(F("' "));
 
     Serial.println();
-#endif    
 }
 
 #endif

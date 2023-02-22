@@ -78,9 +78,10 @@ public:
         TESTIN ONLY BELOW HERE
     */
 
-   /* Print the pointer*/
+    /* Print the pointer*/
     void traversePrint(node *ptr);
     /* Function to traverseForward the Doubly Linked List  (used for testing only)*/
+    void traverseForward(const char *);
     void traverseForward();
     /* Function to traverseBackward the Doubly Linked List  (used for testing only)*/
     void traverseBackward();

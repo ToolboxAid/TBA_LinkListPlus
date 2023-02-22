@@ -144,7 +144,7 @@ void insertBegin(LinkListPlus *linkListPlus)
     ElementBase *base6 = new ElementBase("hello world 6");
     base6->debugSerial("test 6");
     Serial.print(" * insert ID = ");
-    Serial.println(linkListPlus->insertAtBegin(base6)); // insertAtBegin(1);
+    Serial.println(linkListPlus->insertAtBegin(base6));
     linkListPlus->traverseForward();
 }
 void insertEnd(LinkListPlus *linkListPlus)

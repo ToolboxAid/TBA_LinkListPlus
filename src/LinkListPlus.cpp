@@ -3,9 +3,6 @@
 #ifndef LinkListPlus_cpp
 #define LinkListPlus_cpp
 
-#include "..\LinkListDebug.h" // You are required to create this file in every Project that uses LinkListPlus at root folder \LinkListDebug.h
-// LinkListPlusDebug
-
 #include "LinkListPlus.h"
 
 const char *validPosition = "Please enter a valid position";
@@ -193,11 +190,11 @@ ElementBase *LinkListPlus::searchID(uint16_t elementID)
     }
     return NULL;
 }
-/* Function to search for ID */
+/* Function to search for Name */
 ElementBase *LinkListPlus::searchName(const char *name)
 {
     if (NULL != name)
-    {   // Check for empty String here...
+    { // Check for empty String here...
         temp = head;
         while (temp != NULL)
         { /* While pointer is not NULL, traverseForward */
@@ -271,8 +268,8 @@ void LinkListPlus::delAtEnd()
     delete temp->data;
     free(temp);
 }
-/* Function to search for ID */
-bool LinkListPlus::deleteID(uint16_t elementID)
+/* Function to delete ID */
+boolean LinkListPlus::deleteID(uint16_t elementID)
 {
     if (NULL != elementID)
     {
@@ -292,8 +289,8 @@ bool LinkListPlus::deleteID(uint16_t elementID)
     }
     return false;
 }
-/* Function to search for ID */
-bool LinkListPlus::deleteName(const char *name)
+/* Function to delete Name */
+boolean LinkListPlus::deleteName(const char *name)
 {
     if (NULL != name)
     {
@@ -335,25 +332,35 @@ void LinkListPlus::clearLinkList()
 
 void LinkListPlus::traversePrint(node *ptr)
 {
-//#ifdef LinkListPlusDebug
-    Serial.print(" prev: '");
-    Serial.print((uint)ptr->prev, HEX);
-    Serial.print("' ptr: '");
+    Serial.print(" prev: '0x");
+    if (ptr->prev == 0)
+        Serial.print("00000000");
+    else
+        Serial.print((uint)ptr->prev, HEX);
+
+    Serial.print("' ptr: '0x");
     Serial.print((uint)ptr, HEX);
-    Serial.print("' next: '");
-    Serial.print((uint)ptr->next, HEX);
-    Serial.print("' data: '");
+
+    Serial.print("' next: '0x");
+    if (ptr->next == 0)
+        Serial.print("00000000");
+    else
+        Serial.print((uint)ptr->next, HEX);
+
+    Serial.print("' data: '0x");
     Serial.print((uint)ptr->data, HEX);
+
+
     Serial.print("' ");
-    ptr->data->debugSerial("back");
-//#endif
+    ptr->data->debugSerial("LLP");
 }
 /* Function to traverseForward the Doubly Linked List  (used for testing only)*/
-void LinkListPlus::traverseForward() //(used for testing only)
-{                                    /* Nodes points towards head node */
-//#ifdef LinkListPlusDebug
-    Serial.println("\n");
-    Serial.println("Linked List traverseForward - Head to Tail: ");
+void LinkListPlus::traverseForward(const char *tableName) //(used for testing only)
+{                                                         /* Nodes points towards head node */
+    Serial.println("------------------------------------------------------");
+    Serial.print("Linked List traverseForward - Head to Tail: '");
+    Serial.print(tableName);
+    Serial.println("'");
 
     temp = head;
 
@@ -364,20 +371,22 @@ void LinkListPlus::traverseForward() //(used for testing only)
 
         Serial.print("pos: '");
         Serial.print(pos++);
-        Serial.print("' ");
+        Serial.print("' \t");
         traversePrint(temp);
 
         temp = temp->next;
     }
     Serial.print("Linked List nodeCount: ");
     Serial.println(getNodeCount());
-    Serial.println("\n");
-//#endif
+    Serial.println("");
+}
+void LinkListPlus::traverseForward() //(used for testing only)
+{                                    /* Nodes points towards head node */
+    traverseForward("not set");
 }
 /* Function to traverseBackward the Doubly Linked List  (used for testing only)*/
 void LinkListPlus::traverseBackward() //(used for testing only)
 {
-#ifdef LinkListPlusDebug
     Serial.println("Linked List traverseBackward - Tail to Head: ");
 
     /* Nodes points towards head node */
@@ -399,7 +408,6 @@ void LinkListPlus::traverseBackward() //(used for testing only)
     Serial.print("Linked List nodeCount: ");
     Serial.println(getNodeCount());
     Serial.println("\n\n");
-#endif
 }
 
 #endif
