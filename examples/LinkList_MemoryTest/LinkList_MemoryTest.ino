@@ -4,10 +4,11 @@
 
 #define LinkListPlusMemoryDebug
 
+#include "TBA_SupportFunction.h"
 #include "LinkListPlus.h"
+
 #include "ElementDerived.h"
 #include "InnerClass.h"
-#include "TBA_SupportFunction.h"
 
 TBA_SupportFunction supportFunction = TBA_SupportFunction();
 

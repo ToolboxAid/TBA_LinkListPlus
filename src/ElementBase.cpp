@@ -5,12 +5,6 @@
 
 #include "ElementBase.h"
 
-//#define ElementBaseDebug
-/* = = = = = = = = = = = = = = = = = = = = = = = =
-ElementBase vars above
-Code Below
-= = = = = = = = = = = = = = = = = = = = = = = = */
-
 ElementBase::ElementBase(const char *name)
 {
     static uint16_t identityCounter = 0;
