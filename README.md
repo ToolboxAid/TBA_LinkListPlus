@@ -2,7 +2,7 @@
 
 ![This is an image](./assets/ToolboxAid.png)
 
-## Libraries required (tag links):
+## Libraries required (tag links)
 
 - [TBA_Macros v1.0.2](https://github.com/ToolboxAid/TBA_Macros/releases/tag/v1.0.2)
 - [TBA_SupportFunction v1.0.1](https://github.com/ToolboxAid/TBA_SupportFunction/releases/tag/v1.0.1)
